@@ -11,10 +11,13 @@ import java.util.*;
 
 @RestController
 public class MyController {
+
+    private final CourseService service_;
+
     @Autowired
-    private CourseService service_;
-    @Autowired
-    private Course course;
+    public MyController(CourseService service_) {
+        this.service_ = service_;
+    }
 
     @GetMapping("/home")
     public String home() {
