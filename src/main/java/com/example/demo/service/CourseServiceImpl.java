@@ -26,16 +26,53 @@ public class CourseServiceImpl
 
     @Override
     public Course getCourse(Long id) {
-        Course var=null;
-        for( Course course: list){
-            if(id==course.getId()){
-               var=course;
+        Course var = null;
+        for (Course course : list) {
+            if (id == course.getId()) {
+                var = course;
                 break;
 
             }
         }
 
-        return var ;
+        return var;
+    }
+
+    @Override
+    public Course addCourse(Course course) {
+        list.add(course);
+        return course;
+    }
+
+    @Override
+    public Course updateCourse(Course course) {
+
+        for (Course c1 : list) {
+            if ( course.getId()== c1.getId()) {
+                list.remove(c1);
+                list.add(course);
+                break;
+
+            }
+        }
+
+
+
+        return course;
+    }
+
+    @Override
+    public Course deleteCourse(Long id) {
+        Course var = null;
+        for (Course course : list) {
+            if (id == course.getId()) {
+                var = course;
+                break;
+
+            }
+        }
+        list.remove(var);
+        return null;
     }
 
 

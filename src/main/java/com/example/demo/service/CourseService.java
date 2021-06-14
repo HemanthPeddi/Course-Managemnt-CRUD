@@ -8,6 +8,11 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 public interface CourseService {
- List<Course> getCourses();
- Course getCourse(Long id);
+    List<Course> getCourses();
+
+    Course getCourse(Long id);
+
+    Course addCourse(Course course);
+    Course updateCourse(Course course);
+    Course deleteCourse(Long id);
 }
